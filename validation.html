@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<title>validations</title>
+</head>
+<body>
+	<h1>Javascript can validate input</h1>
+	<p>please enter a number between 1 to 10</p>
+	<input id="number">
+	<input type="button" onclick="myFunction()"value="submit">
+	<input id="check"type="checkbox">
+
+	<p id="demo"></p>
+	<script>
+	function myFunction()
+	{
+	  var x;
+	  var text;
+	  x=document.getElementById("number").value;
+	  if(isNaN(x)||x<1||x>10){
+	  	text="input not valid";
+	  }
+	  	else{
+	  		text="input is valid";
+	  	}
+	  
+	  document.getElementById("demo").innerHTML=text;
+	}
+	var box=document.getElementById("check");
+	box.addEventListener("mouseover",functionname);
+	function functionname(){
+		//if(box.value==checked){
+		alert("plz check the checkbox");
+		}
+	}	
+
+	</script>
+</body>
+	
+</html>
