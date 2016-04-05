@@ -1,0 +1,236 @@
+ <html>
+<head>
+	<meta charset="UTF-8">
+	<title>form validation using jquery</title>
+	<link rel="stylesheet" href="../javascriptexampls/css/jquery-ui.min.css">
+	<script type="text/javascript" src="../javascriptexampls/js/jquery.js"></script>
+	<script type="text/javascript" src="../javascriptexampls/js/jquery-ui.min.js"></script>
+	<style>
+		#maindiv{
+			height:500px;
+			width:650px;
+			margin:auto;
+			margin-top: 70px;
+			border:3px solid gray;
+			background-color: #E9E9E9;
+		}
+		#header{
+			text-align: center;
+			color:#706E63;
+		}
+		#fname{
+			height:30px;
+			margin-top: 10px;
+			border:2px solid #5CC4E6;
+			margin-left: 20px;
+			border-radius: 5px;
+			
+
+		}
+		#fname1{
+			margin-top: 15px;
+			margin-left: 200px;
+			float:left;
+			font:bold;
+		}
+		#lname1{
+			margin-top: 15px;
+			margin-left: 200px;
+			float:left;
+			font:bold;
+		}
+		#lname{
+			margin-top: 10px;
+			border:2px solid #5CC4E6;
+			margin-left: 20px;
+			height:30px;
+			border-radius: 5px;
+			}
+		#email{
+			margin-top: 10px;
+			margin-left: 40px;
+			border:2px solid #5CC4E6;
+			height: 30px;
+			border-radius: 5px;
+			
+
+		}
+		#mail1{
+			margin-top: 15px;
+			margin-left: 200px;
+			float:left;
+			font:bold;
+		}
+		#pwd1{
+			margin-top: 15px;
+			margin-left: 200px;
+			float:left;
+			font:bold;
+		}
+		#pwd{
+			margin-top: 10px;
+			border:2px solid #5CC4E6;
+			margin-left: 20px;
+			height: 30px;
+			border-radius: 5px;
+		}
+		#submit{
+			margin-top: 30px;
+			margin-left: 250px;
+			height:40px;
+			width:150px;
+			background-color: #7AB5A4;
+			border:none;
+			border-radius: 7px;
+			
+			font-size: 15px;
+		}
+		#myspan{
+			display:none;
+			color:red;
+		}
+			
+	</style>
+
+
+	<script>
+	
+
+		$("document").ready(function(){
+
+				var FirstName=$("#fname");
+				var LastName=$("#lname");
+				var male=$("#radio1");
+				var female=$("#radio2");
+				var mailid=$("#email");
+				var PassWord=$("#pwd");
+				var button1=$("#submit");
+				var FirstNamevalid=true;
+				var lastnamevalid=true;
+				var malevalid=true;
+				var femalevalid=true;
+				var mailvalid=true;
+				var passwordvalid=true;	
+
+				
+				
+				button1.click(function(){
+					        FirstName.blur(function() {
+					                    FirstName.css("border","3px solid green");
+					                                  
+					          });
+							LastName.blur(function() {
+					                    LastName.css("border","3px solid green");
+					                                  
+					          });
+							
+							mailid.blur(function() {
+					                   mailid.css("border","3px solid green");
+					                                  
+					          });
+							PassWord.blur(function() {
+					                    PassWord.css("border","3px solid green");
+					                                  
+					          });
+
+
+                         if(FirstName.val() ===""){
+                          		
+                          		
+                          		FirstName.css("border","3px solid red");
+                          		FirstNamevalid=false;
+                          	}else{
+                          		FirstName.blur();
+                          		FirstNamevalid=true;
+                          	}
+                          	
+                         if(LastName.val() ===""){
+                          	
+                          	LastName.css("border","3px solid red");
+                          	lastnamevalid=false;
+                         }else{
+                          		LastName.blur();
+                          		
+                          		lastnamevalid=true;
+                          	}
+                          	
+                         if(male.is(":checked")===false&&female.is(":checked")===false) {
+                            	
+                            	
+                            	$("#myspan").show();
+                            	malevalid=false;
+                            	femalevalid=false;
+                         }else{
+                         	    $("#myspan").hide();
+                         	    malevalid=true;
+                         	   femalevalid=true;
+                         }
+                         if(mailid.val()===""){
+                         	
+                         	mailid.css("border","3px solid red");
+                         	mailvalid=false;
+
+                         }else{
+                         	
+                         		mailid.blur();
+                         		mailvalid=true;
+                         }
+                         if(PassWord.val()===""){
+                         	
+                         	PassWord.css("border","3px solid red");
+                         	passwordvalid=false;
+                         }else{
+                         	PassWord.blur();
+                         	passwordvalid=true;
+                         }
+                         if(FirstNamevalid && lastnamevalid && malevalid && femalevalid && mailvalid &&passwordvalid ===true){
+                         	
+                         	 url="https://www.google.com";
+                         	 window.open(url);
+                         	
+                         }else{
+                         	
+                         	 return false;
+                          }
+			    });
+
+		});
+
+	</script>
+</head>
+<body>
+	<div id="maindiv">
+		<h1 id="header">User Registration</h1>
+		
+
+<form id="form1">
+	 <label id="fname1">FirstName:</label>
+	 <input id="fname"type="text"minlenght="2"><br><br>
+	 <label id="lname1">LastName:<br></span></label>
+	 <input id="lname" type="text"minlenght="2" >
+	 <fieldset>
+	 <legend>Gender</legend>
+	 <p>
+      <input type="radio" name="gender" id="radio1"  />Male
+      
+    </p>
+    <p>
+      <input type="radio" name="gender" id="radio2"   />Female
+     
+    </p>
+    <span id="myspan">Please select gender</span>
+	</fieldset>
+	 
+	 <label id="mail1">EMail:</label>
+	 <input id="email" type="email" ><br><br>
+	 <label id="pwd1">PassWord:</label>
+	 <input  id="pwd"type="password"><br><br>
+	 <input type="button" id="submit"value="submit" >
+
+
+
+</form>
+</div>
+	
+</body>
+</html>
